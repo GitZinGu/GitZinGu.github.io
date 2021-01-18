@@ -1,0 +1,16 @@
+D:\VS2019\MyGitHub\Salotto.github.io\salotto\bin\Debug\salotto.exe.config
+D:\VS2019\MyGitHub\Salotto.github.io\salotto\bin\Debug\salotto.exe
+D:\VS2019\MyGitHub\Salotto.github.io\salotto\bin\Debug\salotto.pdb
+D:\VS2019\MyGitHub\Salotto.github.io\salotto\obj\Debug\salotto.csprojAssemblyReference.cache
+D:\VS2019\MyGitHub\Salotto.github.io\salotto\obj\Debug\salotto.Form1.resources
+D:\VS2019\MyGitHub\Salotto.github.io\salotto\obj\Debug\salotto.Properties.Resources.resources
+D:\VS2019\MyGitHub\Salotto.github.io\salotto\obj\Debug\salotto.csproj.GenerateResource.cache
+D:\VS2019\MyGitHub\Salotto.github.io\salotto\obj\Debug\salotto.csproj.CoreCompileInputs.cache
+D:\VS2019\MyGitHub\Salotto.github.io\salotto\obj\Debug\salotto.exe
+D:\VS2019\MyGitHub\Salotto.github.io\salotto\obj\Debug\salotto.pdb
+D:\VS2019\MyGitHub\Salotto.github.io\salotto\bin\Debug\Newtonsoft.Json.dll
+D:\VS2019\MyGitHub\Salotto.github.io\salotto\bin\Debug\Newtonsoft.Json.xml
+D:\VS2019\MyGitHub\Salotto.github.io\salotto\obj\Debug\salotto.AddBalance.resources
+D:\VS2019\MyGitHub\Salotto.github.io\salotto\obj\Debug\salotto.MemberManagement.resources
+D:\VS2019\MyGitHub\Salotto.github.io\salotto\obj\Debug\salotto.VIPManager.resources
+D:\VS2019\MyGitHub\Salotto.github.io\salotto\obj\Debug\salotto.csproj.CopyComplete
