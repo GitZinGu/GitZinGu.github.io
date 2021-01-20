@@ -46,5 +46,17 @@ namespace salotto.Properties {
                 this["History"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("../Store/Goods/Good.JSON")]
+        public string Goods {
+            get {
+                return ((string)(this["Goods"]));
+            }
+            set {
+                this["Goods"] = value;
+            }
+        }
     }
 }

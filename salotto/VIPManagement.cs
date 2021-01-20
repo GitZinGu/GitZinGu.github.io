@@ -16,11 +16,11 @@ namespace salotto
     {
         [NonSerialized]
         private List<VIPManagement> AllVIP = null;          
-        private int vipcard;
+        private string vipcard;
         /// <summary>
         /// 卡号
         /// </summary>
-        public int VipCard 
+        public string VipCard 
         {   
             get 
             { 
@@ -98,8 +98,8 @@ namespace salotto
         /// <summary>
         /// 注册时间
         /// </summary>
-        private DateTime createtime;
-        public DateTime CreateTime 
+        private string createtime;
+        public string CreateTime 
         {
             get
             {
@@ -107,9 +107,25 @@ namespace salotto
             }
             set
             {
-                this.createtime=value;
+                this.createtime = value;
             }
         }
+
+        //通过ID获取信息
+        public static VIPManagement GetVipInfo(string carid)
+        {                                              
+            string url = Properties.Settings.Default.VIP+ $"/{carid}";
+            FileInfo f = new FileInfo(url);
+            if (File.Exists(f.FullName))
+            {
+                string vipinfo = File.ReadAllText(f.FullName);
+                return JsonConvert.DeserializeObject<VIPManagement>(vipinfo);
+            }
+            else
+            {
+                return null;
+            }        
+        }          
 
         /// <summary>
         /// 获取所有会员信息
@@ -136,17 +152,21 @@ namespace salotto
         }     
 
         //查询
-        public DataTable SearchVip(int _carid,string _name, int phone)
+        public DataTable SearchVip(string _carid,string _name, string phone)
         {
-            DataRow[] dr= GetAllVipInfo().Select($"VipCard like %{_carid}% and UserName like '%{_name}%' and PhoneNumber like '%{phone}%'");
+            string strTemp = "VipCard  like '%" + _carid + "%'"+" and UserName like '%" + _name + "%'"
+                           + "and PhoneNumber like '%" + phone + "%'" ;
+            DataTable dt = GetAllVipInfo();
+            DataRow[] dr= dt.Select(strTemp);
             return ListToDatatableHelper.DataRowToDataTable(dr);
         }
 
         //新增
         public string AddVipUser(VIPManagement vip)
         {
-            vip.CreateTime = DateTime.Now;
+            vip.CreateTime = DateTime.Now.ToLocalTime().ToString();
             string result = "ERROR:";
+            GetAllVipInfo();
             foreach (var item in AllVIP)
             {
                 if (item.VipCard== vip.VipCard)
@@ -169,17 +189,10 @@ namespace salotto
         }
 
         //删除
-        public void DeleteVipUser(VIPManagement vip)
+        public static void DeleteVipUser(string VipCard)
         {
-            File.Delete(Properties.Settings.Default.VIP + $"/{vip.VipCard}");       
-        }
-        //充值
-        
-        //消费
-
-        //导出
-
-        //导入
+            File.Delete(Properties.Settings.Default.VIP + $"/{VipCard}");       
+        }         
 
     }
 }

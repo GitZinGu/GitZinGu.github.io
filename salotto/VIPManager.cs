@@ -20,10 +20,10 @@ namespace salotto
             vip = new VIPManagement();
             Type = "新增";
         }
-       public VIPManager(VIPManagement vip)
+       public VIPManager(VIPManagement _vip)
         {
             InitializeComponent();
-            vip = new VIPManagement();
+            vip = _vip;
             Type = "修改";
             textBox1.Text = vip.VipCard.ToString();
             textBox2.Text = vip.UserName.ToString();
@@ -36,18 +36,21 @@ namespace salotto
 
         private void button1_Click(object sender, EventArgs e)
         {              
-            vip.VipCard = Convert.ToInt32(textBox1.Text.Trim());
+            vip.VipCard = textBox1.Text.Trim();
             vip.UserName = textBox2.Text.Trim();
             vip.VipType =  comboBox1.SelectedItem.ToString().Trim();
             vip.PhoneNumber = textBox5.Text.Trim();
-            vip.Balance = Convert.ToInt32(textBox6.Text.Trim());
+            vip.Balance = Convert.ToInt32(textBox6.Text.Trim());    
             if (Type=="新增")
             {
-                vip.EditVipUser(vip);
+                vip.CreateTime = DateTime.Now.ToLocalTime().ToString();
+                vip.AddVipUser(vip);
+                Banlance bl = new Banlance(vip);
+                bl.ExecAdd(Convert.ToInt32(textBox6.Text.Trim()),true);
             }
             else
-            {
-                vip.AddVipUser(vip);
+            {                                     
+                vip.EditVipUser(vip);
             }
             this.DialogResult = DialogResult.OK;
         }
