@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 
 namespace salotto
 {
-    struct Goods
-    {
+    public struct Goods
+    {            
         private string goodname;
         public string GoodName
         {
@@ -27,33 +27,52 @@ namespace salotto
     }
     class GoodsType
     {
+        private const string FILENAME = "GOOD.JSON";
         List<Goods> lgoods;
         Goods goods;
         string filedirectory;
+        string filefullname;
+        public GoodsType()
+        {
+            filedirectory = Properties.Settings.Default.Goods;
+            FileCreate.FileAndDirCreate(FileType.directory, filedirectory);
+            FileCreate.FileAndDirCreate(FileType.File, filedirectory + @"/" + FILENAME);
+            filefullname = filedirectory + @"/" + FILENAME;
+            lgoods = new List<Goods>();
+        }
         public GoodsType(string name,int price)
         {
             goods.GoodName = name;
             goods.GoodPrice = price;
             filedirectory = Properties.Settings.Default.Goods;
+            FileCreate.FileAndDirCreate(FileType.directory, filedirectory);
+            FileCreate.FileAndDirCreate(FileType.File, filedirectory + @"/" + FILENAME);
+            filefullname = filedirectory + @"/" + FILENAME;
             lgoods = new List<Goods>();
         }
         /// <summary>
         /// 读取文件
         /// </summary>
         private void ReadFile()
-        {               
-            FileInfo f = new FileInfo(filedirectory);
-            if (File.Exists(f.FullName))
+        {
+            
+            string f = filedirectory + @"/" + FILENAME;
+            if (File.Exists(f))
             {
-                string Goodsinfo = File.ReadAllText(f.FullName);
+                string Goodsinfo = File.ReadAllText(f);
+                if (string.IsNullOrEmpty(Goodsinfo))
+                {
+                    return;
+                }
                 lgoods = JsonConvert.DeserializeObject<List<Goods>>(Goodsinfo);
-            }
+            }    
             
                                                              
         }
         //查询
         public DataTable SearchGoods(string name)
         {
+            ReadFile();
             string strTemp = "GoodName  like '%" + name + "%'";
             DataTable dt = ListToDatatableHelper.ToDataTable(lgoods);
             DataRow[] dr = dt.Select(strTemp);
@@ -74,8 +93,8 @@ namespace salotto
                         return result+"已存在相同数据！";
                     }
                 }
-                lgoods.Add(_good);
-                File.WriteAllText(filedirectory, JsonConvert.SerializeObject(lgoods));         
+                lgoods.Add(_good);  
+                File.WriteAllText(filefullname, JsonConvert.SerializeObject(lgoods));         
             }
             catch (Exception e)
             {
@@ -96,10 +115,11 @@ namespace salotto
                     if (item.GoodName == _good.GoodName)
                     {
                         lgoods.Remove(item);
+                        break;
                     }
                 }
                 lgoods.Add(_good);
-                File.WriteAllText(filedirectory, JsonConvert.SerializeObject(lgoods));
+                File.WriteAllText(filefullname, JsonConvert.SerializeObject(lgoods));
             }
             catch (Exception e)
             {
@@ -109,14 +129,21 @@ namespace salotto
         }
 
         //删除
-        public string DelGoods(List<Goods> goods)
+        public string DelGoods(string goodsid)
         {
             string result = "Error：删除失败，";
             try
             {
-                ReadFile();       
-                lgoods= lgoods.Except(goods).ToList();
-                File.WriteAllText(filedirectory, JsonConvert.SerializeObject(lgoods));
+                ReadFile(); 
+                foreach (var item in lgoods)
+                {
+                    if (item.GoodName== goodsid)
+                    {
+                        lgoods.Remove(item);
+                        break;
+                    }
+                }
+                File.WriteAllText(filefullname, JsonConvert.SerializeObject(lgoods));
             }
             catch (Exception e)
             {

@@ -33,3 +33,5 @@ D:\VS2019\MyGitHub\Salotto.github.io\salotto\obj\Debug\salotto.csproj.CopyComple
 D:\VS2019\MyGitHub\Salotto.github.io\salotto\obj\Debug\salotto.exe
 D:\VS2019\MyGitHub\Salotto.github.io\salotto\obj\Debug\salotto.pdb
 D:\VS2019\MyGitHub\Salotto.github.io\salotto\obj\Debug\salotto.csprojAssemblyReference.cache
+D:\VS2019\MyGitHub\Salotto.github.io\salotto\obj\Debug\salotto.Part.resources
+D:\VS2019\MyGitHub\Salotto.github.io\salotto\obj\Debug\salotto.PartChild.resources

@@ -92,24 +92,37 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddBalance.cs">
+    <Compile Include="Banlance\AddBalance.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddBalance.Designer.cs">
+    <Compile Include="Banlance\AddBalance.Designer.cs">
       <DependentUpon>AddBalance.cs</DependentUpon>
     </Compile>
-    <Compile Include="Banlance.cs" />
+    <Compile Include="Banlance\Banlance.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="GoodsType.cs" />
-    <Compile Include="MemberManagement.cs">
+    <Compile Include="Part.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MemberManagement.Designer.cs">
+    <Compile Include="Part.Designer.cs">
+      <DependentUpon>Part.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GoodsType.cs" />
+    <Compile Include="PartChild.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PartChild.Designer.cs">
+      <DependentUpon>PartChild.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tool\FileCreate.cs" />
+    <Compile Include="VIPmanager\MemberManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIPmanager\MemberManagement.Designer.cs">
       <DependentUpon>MemberManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="MouseHelper\MouseHook.cs" />
@@ -122,20 +135,26 @@
     <Compile Include="Tool\ExcelHelper.cs" />
     <Compile Include="Tool\ListToDatatableHelper.cs" />
     <Compile Include="Tool\PDFHelper.cs" />
-    <Compile Include="VIPManagement.cs" />
-    <Compile Include="VIPManager.cs">
+    <Compile Include="VIPmanager\VIPManagement.cs" />
+    <Compile Include="VIPmanager\VIPManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VIPManager.Designer.cs">
+    <Compile Include="VIPmanager\VIPManager.Designer.cs">
       <DependentUpon>VIPManager.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddBalance.resx">
+    <EmbeddedResource Include="Banlance\AddBalance.resx">
       <DependentUpon>AddBalance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MemberManagement.resx">
+    <EmbeddedResource Include="Part.resx">
+      <DependentUpon>Part.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PartChild.resx">
+      <DependentUpon>PartChild.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIPmanager\MemberManagement.resx">
       <DependentUpon>MemberManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -148,7 +167,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="VIPManager.resx">
+    <EmbeddedResource Include="VIPmanager\VIPManager.resx">
       <DependentUpon>VIPManager.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -213,5 +232,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

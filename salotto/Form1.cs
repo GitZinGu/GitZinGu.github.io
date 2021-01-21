@@ -17,6 +17,9 @@ namespace salotto
         bool toolstipshow = false;
         PanelEnhanced panel1 = null;
         MemberManagement mm = null;  //会员管理
+        Part part = null; //商品管理
+
+
         public Form1()
         {
             InitializeComponent();
@@ -36,7 +39,7 @@ namespace salotto
         //窗体加载
         private void Form1_Load(object sender, EventArgs e)
         {
-           // MouserSet();
+            //MouserSet();
             LoadPanl();      
             SetBackGroundImage();   
             SetPanlLight();    
@@ -197,6 +200,20 @@ namespace salotto
                 mh.UnHook();
             }
             
+        }
+         /// <summary>
+         /// 商品管理
+         /// </summary>
+         /// <param name="sender"></param>
+         /// <param name="e"></param>
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            part = new Part();
+            part.Dock = DockStyle.Fill;
+            part.TopLevel = false;
+            panel1.Controls.Add(part);
+            part.Show();
         }
     }
 }

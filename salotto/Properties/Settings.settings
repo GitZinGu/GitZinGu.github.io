@@ -9,7 +9,7 @@
       <Value Profile="(Default)">../Store/History</Value>
     </Setting>
     <Setting Name="Goods" Type="System.String" Scope="User">
-      <Value Profile="(Default)">../Store/Goods/Good.JSON</Value>
+      <Value Profile="(Default)">../Store/Goods</Value>
     </Setting>
   </Settings>
 </SettingsFile>
