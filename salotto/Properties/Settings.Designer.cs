@@ -58,5 +58,17 @@ namespace salotto.Properties {
                 this["Goods"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("../Store/Shop")]
+        public string Shop {
+            get {
+                return ((string)(this["Shop"]));
+            }
+            set {
+                this["Shop"] = value;
+            }
+        }
     }
 }

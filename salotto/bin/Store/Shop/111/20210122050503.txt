@@ -1,0 +1,1 @@
+{"VipCard":"111","Vtype":"普通会员","UserName":"111","PhoneNumber":"111111111111111","Banlance":"111111111111111","ls":[{"Goods":"牙膏","GoodsNumber":"1","UnitPrice":"1","TotalPrice":"1"}],"ConsumptionTime":"2021/1/22 17:05:03"}

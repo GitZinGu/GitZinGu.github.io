@@ -11,5 +11,8 @@
     <Setting Name="Goods" Type="System.String" Scope="User">
       <Value Profile="(Default)">../Store/Goods</Value>
     </Setting>
+    <Setting Name="Shop" Type="System.String" Scope="User">
+      <Value Profile="(Default)">../Store/Shop</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -17,6 +17,7 @@ namespace salotto.Tool
     {
         public static void FileAndDirCreate(FileType ft,string path)
         {
+
             switch (ft)
             {
                 case FileType.File:
@@ -29,7 +30,7 @@ namespace salotto.Tool
                         }
                         catch (Exception e)
                         {
-                        }
+                        }    
                     }
                         break;
                 case FileType.directory:

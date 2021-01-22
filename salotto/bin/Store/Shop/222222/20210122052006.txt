@@ -1,0 +1,1 @@
+{"VipCard":"222222","Vtype":"白金会员","UserName":"222222","PhoneNumber":"222222","Banlance":"222222","ls":[{"Goods":"牙膏","GoodsNumber":"5","UnitPrice":"1","TotalPrice":"5"}],"ConsumptionTime":"2021/1/22 17:20:06"}

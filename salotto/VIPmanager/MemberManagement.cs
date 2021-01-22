@@ -194,7 +194,22 @@ namespace salotto
         /// <param name="e"></param>
         private void button8_Click(object sender, EventArgs e)
         {
-
+            if (dataGridView1.SelectedRows.Count == 0 || dataGridView1.SelectedRows.Count > 1)
+            {
+                MessageBox.Show("请选择一行！");
+                return;
+            }
+            VIPManagement vipm = new VIPManagement();
+            vipm.VipCard = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            vipm.UserName = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            vipm.VipType = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            vipm.PhoneNumber = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            vipm.Balance = (int)dataGridView1.CurrentRow.Cells[4].Value;
+            vipm.CreateTime = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            Consumption ab = new Consumption(vipm);
+            ab.StartPosition = FormStartPosition.CenterParent;
+            ab.ShowDialog();
+            button1_Click(null, null);
         }
     }
 }

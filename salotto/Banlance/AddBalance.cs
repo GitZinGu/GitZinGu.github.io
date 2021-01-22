@@ -33,7 +33,7 @@ namespace salotto
         private void button1_Click(object sender, EventArgs e)
         {
             bl = new Banlance(vip);
-            bl.ExecAdd((int)numericUpDown1.Value);
+            bl.ExecAdd((int)numericUpDown1.Value,BanlanceType.充值);
             textBox4.Text = (Convert.ToInt32(textBox4.Text)+ numericUpDown1.Value).ToString();
             dataGridView1.DataSource = bl.ShowHistory();
             SetdataGridViewHeaderCell();

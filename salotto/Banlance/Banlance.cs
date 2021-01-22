@@ -10,6 +10,13 @@ using System.Threading.Tasks;
 
 namespace salotto
 {
+    enum BanlanceType
+    {
+        办理,
+        消费,
+        充值   
+    }
+
     [Serializable]
     class Banlance
     {
@@ -69,19 +76,19 @@ namespace salotto
         /// </summary>
         /// <param name="num"></param>
         /// <returns></returns>
-        public string ExecAdd(int num,bool Create=false)
+        public string ExecAdd(int num, BanlanceType bt)
         {
             string s = "Error:";
             try
             {      
                 addbanlance = num;
                 CreateTime = DateTime.Now.ToLocalTime().ToString();
-                info = Create ? "办理":"充值";
+                info = bt.ToString();
                 AllBanlance.Add(this);
                 File.Delete(Properties.Settings.Default.History + $"/{vipcard}");
                 File.WriteAllText(Properties.Settings.Default.History + $"/{vipcard}", JsonConvert.SerializeObject(AllBanlance));
                        
-                if (!Create)
+                if (bt== BanlanceType.充值)
                 {
                     svip.Balance += num;
                     svip.EditVipUser(svip);

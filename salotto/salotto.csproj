@@ -99,25 +99,32 @@
       <DependentUpon>AddBalance.cs</DependentUpon>
     </Compile>
     <Compile Include="Banlance\Banlance.cs" />
+    <Compile Include="Consumption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consumption.Designer.cs">
+      <DependentUpon>Consumption.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Part.cs">
+    <Compile Include="GoodsInfo\Part.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Part.Designer.cs">
+    <Compile Include="GoodsInfo\Part.Designer.cs">
       <DependentUpon>Part.cs</DependentUpon>
     </Compile>
-    <Compile Include="GoodsType.cs" />
-    <Compile Include="PartChild.cs">
+    <Compile Include="GoodsInfo\GoodsType.cs" />
+    <Compile Include="GoodsInfo\PartChild.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PartChild.Designer.cs">
+    <Compile Include="GoodsInfo\PartChild.Designer.cs">
       <DependentUpon>PartChild.cs</DependentUpon>
     </Compile>
+    <Compile Include="ShoppingCart.cs" />
     <Compile Include="Tool\FileCreate.cs" />
     <Compile Include="VIPmanager\MemberManagement.cs">
       <SubType>Form</SubType>
@@ -145,13 +152,16 @@
     <EmbeddedResource Include="Banlance\AddBalance.resx">
       <DependentUpon>AddBalance.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Consumption.resx">
+      <DependentUpon>Consumption.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Part.resx">
+    <EmbeddedResource Include="GoodsInfo\Part.resx">
       <DependentUpon>Part.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PartChild.resx">
+    <EmbeddedResource Include="GoodsInfo\PartChild.resx">
       <DependentUpon>PartChild.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIPmanager\MemberManagement.resx">

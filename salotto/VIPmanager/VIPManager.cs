@@ -46,7 +46,7 @@ namespace salotto
                 vip.CreateTime = DateTime.Now.ToLocalTime().ToString();
                 vip.AddVipUser(vip);
                 Banlance bl = new Banlance(vip);
-                bl.ExecAdd(Convert.ToInt32(textBox6.Text.Trim()),true);
+                bl.ExecAdd(Convert.ToInt32(textBox6.Text.Trim()),BanlanceType.办理);
             }
             else
             {                                     
