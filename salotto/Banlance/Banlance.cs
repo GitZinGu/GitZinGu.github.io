@@ -83,10 +83,11 @@ namespace salotto
             {      
                 addbanlance = num;
                 CreateTime = DateTime.Now.ToLocalTime().ToString();
-                info = bt.ToString();
+                info = bt.ToString();  
                 AllBanlance.Add(this);
-                File.Delete(Properties.Settings.Default.History + $"/{vipcard}");
-                File.WriteAllText(Properties.Settings.Default.History + $"/{vipcard}", JsonConvert.SerializeObject(AllBanlance));
+                FileInfo f = new FileInfo(Properties.Settings.Default.History + $"/{vipcard}");
+                File.Delete(f.FullName);
+                File.WriteAllText(f.FullName, JsonConvert.SerializeObject(AllBanlance));
                        
                 if (bt== BanlanceType.充值)
                 {

@@ -82,7 +82,9 @@ namespace salotto
         {
             //删除库存                                      
             Banlance bl = new Banlance(vinfo);
-            bl.ExecAdd(vinfo.Balance - TotalPrice,BanlanceType.消费);
+            vinfo.Balance -= TotalPrice;
+            bl.ExecAdd(TotalPrice, BanlanceType.消费);   
+            vinfo.EditVipUser(vinfo);
             //写入文件
             RecordsConsumption ls =new  RecordsConsumption();
             ls.VipCard = vinfo.VipCard;

@@ -48,7 +48,7 @@ namespace salotto
             dataGridView1.Columns[2].HeaderCell.Value = "姓名";
             dataGridView1.Columns[3].HeaderCell.Value = "手机号";
             dataGridView1.Columns[4].HeaderCell.Value = "时间";
-            dataGridView1.Columns[5].HeaderCell.Value = "余额";
+            dataGridView1.Columns[5].HeaderCell.Value = "金额";
             dataGridView1.Columns[6].HeaderCell.Value = "信息";
         }
     }

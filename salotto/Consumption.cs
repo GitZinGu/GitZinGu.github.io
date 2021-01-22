@@ -88,6 +88,11 @@ namespace salotto
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(comboBox1.Text))
+            {
+                MessageBox.Show("请选择商品");
+                return;
+            }
             ConsumptionInfo ci = new ConsumptionInfo();
             ci.Goods = comboBox1.Text;
             ci.GoodsNumber = numericUpDown1.Value.ToString();
@@ -122,6 +127,8 @@ namespace salotto
                 DataTable dt =(DataTable) dataGridView1.DataSource;
                 sp.Settlement(dt,Convert.ToInt32(label11.Text));  
             }
+            MessageBox.Show("结算成功");
+            this.Close();
         }
     }
 
